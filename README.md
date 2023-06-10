@@ -1,2 +1,10 @@
 # zf-no-js
-A 0bdx front-end snippet which removes the `no-js` class from the `&lt;HTML>` element if JavaScript is running.
+
+__A 0bdx front-end snippet which removes the `zf-no-js` class from the `<HTML>` element if JavaScript is running.__
+
+∅&nbsp; __Version:__ 0.0.1  
+∅&nbsp; __NPM:__ <https://www.npmjs.com/package/@zf-/no-js>  
+∅&nbsp; __Repo:__ <https://github.com/0bdx/zf-no-js>  
+∅&nbsp; __Homepage:__ <https://0bdx.com/ainta>
+
+@TODO add an overview

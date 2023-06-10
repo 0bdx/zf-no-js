@@ -1,0 +1,21 @@
+{
+  "name": "zf-no",
+  "version": "0.0.1",
+  "description": "A 0bdx front-end snippet which removes the `zf-no-js` class from the `<HTML>` element if JavaScript is running.",
+  "main": "zf-no-js.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0bdx/zf-no-js.git"
+  },
+  "keywords": [],
+  "author": "0bdx <0@0bdx.com> (0bdx.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/0bdx/zf-no-js/issues"
+  },
+  "homepage": "https://github.com/0bdx/zf-no-js#readme"
+}
