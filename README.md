@@ -1,11 +1,11 @@
-# @zs-/no-js
+# @zs-/js-on
 
-__A 0bdx front-end snippet which removes the `zs-no-js` class from the `<HTML>` element if JavaScript is running.__
+__A 0bdx front-end snippet which adds the `zs-js-on` class to the `<HTML>` element if JavaScript is running.__
 
 ∅&nbsp; __Version:__ 0.0.1  
-∅&nbsp; __NPM:__ <https://www.npmjs.com/package/@zs-/no-js>  
-∅&nbsp; __Repo:__ <https://github.com/0bdx/zs-no-js>  
-∅&nbsp; __Homepage:__ <https://0bdx.com/zs-no-js>
+∅&nbsp; __NPM:__ <https://www.npmjs.com/package/@zs-/js-on>  
+∅&nbsp; __Repo:__ <https://github.com/0bdx/zs-js-on>  
+∅&nbsp; __Homepage:__ <https://0bdx.com/zs-js-on>
 
 @TODO add an overview
 

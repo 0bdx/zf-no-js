@@ -4,7 +4,7 @@ import * as bh from '@0bdx/build-helpers';
 
 export default {
     ...bh.rollupConfigBasicLib(
-        'zs-no-js.js',
+        'zs-js-on.js',
         bh.generateBanner(
             new Date(),
             readFileSync('./package.json', 'utf-8'),

@@ -1,28 +1,28 @@
 {
-  "name": "@zs-/no-js",
+  "name": "@zs-/js-on",
   "version": "0.0.1",
-  "description": "A 0bdx front-end snippet which removes the `zs-no-js` class from the `<HTML>` element if JavaScript is running.",
+  "description": "A 0bdx front-end snippet which adds the `zs-js-on` class to the `<HTML>` element if JavaScript is running.",
   "type": "module",
   "files": [
-    "zs-no-js.d.ts",
-    "zs-no-js.js"
+    "zs-js-on.d.ts",
+    "zs-js-on.js"
   ],
   "engines": {
     "node": ">= 14.0.0"
   },
-  "main": "zs-no-js.js",
+  "main": "zs-js-on.js",
   "scripts": {
     "build:prod": "rollup -c",
-    "build:types": "tsc zs-no-js.js --allowJs --declaration --emitDeclarationOnly",
+    "build:types": "tsc zs-js-on.js --allowJs --declaration --emitDeclarationOnly",
     "build": "for s in {prod,types};do npm run build:$s;done",
     "preflight:test": "echo \"🧬 test.js\" && node test.js",
-    "preflight:types": "tsc zs-no-js.js --allowJs --checkJs --noEmit",
+    "preflight:types": "tsc zs-js-on.js --allowJs --checkJs --noEmit",
     "preflight": "for s in {test,types};do npm run preflight:$s;done",
     "test": "echo \"🧪 src/test.js\" && node src/test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/0bdx/zs-no-js.git"
+    "url": "git+https://github.com/0bdx/zs-js-on.git"
   },
   "keywords": [
     "noscript"
@@ -30,10 +30,10 @@
   "author": "0bdx <0@0bdx.com> (0bdx.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/0bdx/zs-no-js/issues"
+    "url": "https://github.com/0bdx/zs-js-on/issues"
   },
-  "homepage": "https://github.com/0bdx/zs-no-js#readme",
-  "types": "./zs-no-js.d.ts",
+  "homepage": "https://github.com/0bdx/zs-js-on#readme",
+  "types": "./zs-js-on.d.ts",
   "devDependencies": {
     "@0bdx/build-helpers": "^0.0.4",
     "rollup": "^3.25.0"

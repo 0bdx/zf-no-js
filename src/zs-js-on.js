@@ -4,6 +4,6 @@
  * @param {HTMLHtmlElement} htmlElement
  *   The `document.documentElement` object, which is the page's `<HTML>` tag.
  */
-export default function zsNoJs(htmlElement) {
+export default function zsJsOn(htmlElement) {
   return '@TODO';
 }
