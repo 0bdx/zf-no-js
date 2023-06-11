@@ -4,7 +4,6 @@
  * @license Copyright (c) 2023 0bdx <0@0bdx.com> (0bdx.com)
  * SPDX-License-Identifier: MIT
  */
-
 /** ### Adds the `zs-js-on` class to the `<HTML>` element if JS is running.
  * 
  * If `zsJsOn()` is called in `<BODY>`, you can pass `document.body.parentNode`
@@ -30,5 +29,15 @@ function zsJsOn(CLASS_NAME,htmlElement){
   // If className is empty, append "zs-js-on". Otherwise, append after a space.
   htmlElement[CLASS_NAME]+=(htmlElement[CLASS_NAME]?' ':'')+'zs-js-on';
 }
+
+
+/* ------------------------------ Compatibility ----------------------------- */
+
+// Chrome 1 (2008), Firefox 1 (2004), Safari 1 (2003):
+// - `document.documentElement`
+// - `HTMLElement.className`
+
+// Chrome 1 (2008), Firefox 1 (2004), Safari 1.1 (2003):
+// - `document.body.parentNode` (may be faster than `document.documentElement`)
 
 export { zsJsOn as default };
