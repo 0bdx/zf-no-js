@@ -1,17 +1,11 @@
 export { zsJsOn as default };
-/**
- * https://www.npmjs.com/package/@zs-/js-on
- * @version 0.0.1
- * @license Copyright (c) 2023 0bdx <0@0bdx.com> (0bdx.com)
- * SPDX-License-Identifier: MIT
- */
 /** ### Adds the `zs-js-on` class to the `<HTML>` element if JS is running.
  *
  * If `zsJsOn()` is called in `<BODY>`, you can pass `document.body.parentNode`
  * as the first argument, which may be slightly faster.
  *
- * If `zsJsOn()` is called in `<HEAD>`, pass `document.documentElement` as
- * the first argument, because `document.body.parentNode` isn’t available there.
+ * If `zsJsOn()` is called in `<HEAD>`, pass `document.documentElement` as the
+ * first argument, because `document.body.parentNode` isn’t available there.
  *
  * Live examples:
  * - <https://0bdx.com/zs-js-on/examples/example-1.html>

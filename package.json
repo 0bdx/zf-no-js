@@ -35,7 +35,9 @@
   "homepage": "https://github.com/0bdx/zs-js-on#readme",
   "types": "./zs-js-on.d.ts",
   "devDependencies": {
+    "@0bdx/are": "^0.0.3",
     "@0bdx/build-helpers": "^0.0.4",
+    "@rollup/plugin-node-resolve": "^15.1.0",
     "rollup": "^3.25.0"
   }
 }

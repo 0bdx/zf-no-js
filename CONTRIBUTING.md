@@ -35,8 +35,9 @@
 Clone the repository, and `cd` into it:  
 `git clone git@github.com:0bdx/zs-js-on.git && cd zs-js-on`
 
-Install the two dev-dependencies:  
+Install the three dev-dependencies:  
 `npm i`  
+@0bdx/are 0.0.3, 1 package, 83 kB for 6 items.  
 @0bdx/build-helpers 0.0.4, 1 package, 22 kB for 6 items.  
 rollup 3.25.0, 2 packages, 2.6 MB for 32 items.  
 
@@ -128,8 +129,9 @@ sed -ix 's|exit 1|node src/test.js|' *e.json
 sed -ix 's/§0/zs-js-on./g' *e.json
 sed -ix 's/author": "/author": "0bdx <0@0bdx.com> (0bdx.com)/' *e.json
 rm package.jsonx
-npm install @0bdx/build-helpers -D
-npm install rollup -D
+npm install @0bdx/are --save-dev
+npm install @0bdx/build-helpers --save-dev
+npm install rollup --save-dev
 ```
 
 1. Create a default __package.json__ file:  
@@ -175,6 +177,7 @@ npm install rollup -D
     `sed -ix 's/author": "/author": "0bdx <0@0bdx.com> (0bdx.com)/' *e.json`
 14. Delete the temporary __package.jsonx__ file:  
     `rm package.jsonx`
-15. Install two dev-dependencies:  
-    `npm install @0bdx/build-helpers -D` 0.0.4, 1 package, 22 kB for 6 items  
-    `npm install rollup -D` 3.25.0, 2 packages, 2.6 MB for 32 items  
+15. Install three dev-dependencies:  
+    `npm install @0bdx/are --save-dev` 0.0.3, 1 package, 83 kB for 6 items  
+    `npm install @0bdx/build-helpers --save-dev` 0.0.4, 1 package, 22 kB for 6 items  
+    `npm install rollup --save-dev` 3.25.0, 2 packages, 2.6 MB for 32 items  

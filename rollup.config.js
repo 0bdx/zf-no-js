@@ -1,6 +1,7 @@
 import { readFileSync } from 'fs';
 import { execSync } from 'child_process';
 import * as bh from '@0bdx/build-helpers';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 export default {
     ...bh.rollupConfigBasicLib(
@@ -12,4 +13,9 @@ export default {
             true,
         ),
     ),
+    external: [
+        '@0bdx/ainta',
+        '@0bdx/are',
+    ],
+    plugins: [ nodeResolve() ],
 };
