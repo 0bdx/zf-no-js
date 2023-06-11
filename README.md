@@ -9,13 +9,19 @@ __A 0bdx front-end snippet which adds the `zs-js-on` class to the `<HTML>` eleme
 
 @TODO add an overview
 
+## __Live examples:__
+
+- <https://0bdx.com/zs-js-on/examples/example-1.html>
+- <https://0bdx.com/zs-js-on/examples/example-2.html>
+
 ## __About `zs-` snippets__
 
 `zs-` is the prefix used to identify 0bdx’s collection of ‘front-end snippets’.
 A `zs-` snippet can be CSS, HTML, JavaScript, or a combination of all three.
 
 __Each `zs-` snippet is small, and does one thing well. They:__
-- Are portable and backwards-compatible
+- Are portable across a wide variety of user agents
+- Are backwards-compatible, supporting old ES5 user agents
 - Have no runtime dependencies
 - Can reduce the number of server requests
 - Can speed up page loading (FCP, FMP, TTI, etc)

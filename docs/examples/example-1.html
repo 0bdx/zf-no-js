@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html class="pre-existing classes-here" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>@zs-/js-on Example 1: Pre-existing classes</title>
+  <style>
+    /* Hide “zsJsOn() did NOT detect JS is switched on”, if zsJsOn() works. */
+    .js-switched-off { display:block }
+    html.zs-js-on .js-switched-off { display:none }
+
+    /* Show “zsJsOn() detected that JS is switched on”, if zsJsOn() works. */
+    .js-switched-on { display:none }
+    html.zs-js-on .js-switched-on { display:block }
+  </style>
+
+  <script>!function zsJsOn(C,h){h[C]+=(h[C]?' ':'')+'zs-js-on'}('className',
+  document.documentElement)//0bdx.com/zs-js-on#0.0.1</script>
+
+  <style>
+    html{margin:0 2em;text-align:center;font:21px Arial,sans-serif;
+      background:#d1ffe6;color:#873600}
+    p{margin:0.4em}
+    h3{margin:1em;padding:1em;background:#873600;color:#d1ffe6}
+    pre{margin:1em 0 2em;padding:1em;text-align:left;background:#222;color:#ddd}
+    @media(prefers-color-scheme:dark){
+      html{background:#873600;color:#d1ffe6}
+      h3{background:#d1ffe6;color:#873600}
+    }
+    @media(max-width:500px){html{font-size:16px}}
+  </style>
+</head>
+<body>
+  <h2>@zs-/js-on 0.0.1</h2>
+  <h1>Example 1: Pre-existing classes</h1>
+
+  <h3 class="js-switched-off"><tt>zsJsOn()</tt> did NOT detect JS is switched on.</h3>
+  <h3 class="js-switched-on"><tt>zsJsOn()</tt> detected that JS is switched on.</h3>
+
+  <p>Here, the opening <tt>&lt;HTML></tt> tag originally contained:
+    <pre>&lt;html class="pre-existing classes-here" lang="en"></pre>
+  </p>
+
+  <script>
+    document.write('After <tt>zsJsOn()</tt> was called, it now contains:');
+    var html = document.documentElement.outerHTML;
+    document.write('<pre>&lt;' + html.slice(1,html.indexOf('>')) + '></pre>');
+  </script>
+  <noscript>
+    <p>The <tt>&lt;noscript></tt> elements are displayed in this user agent.</p>
+  </noscript>
+
+</body>
+</html>
