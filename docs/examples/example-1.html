@@ -13,9 +13,9 @@
     html.zs-js-on .js-switched-on { display:block }
   </style>
 
-  <!-- Add zs-js-on to <html class...> if JS is running --><script>!function(
+  <!-- Add zs-js-on to <html class...> if JS is running --><script>(function(
   A,C,c,S,h,a,b,e,o){o=h[C];if(!o)return h[C]=A;o=S+o+S;e=o.indexOf(A);a=o[c](e
-  +A.length);b=o[c](e-1);if(e<0||a!=S||b!=S)h[C]+=S+A}('zs-js-on','className',
+  +A.length);b=o[c](e-1);if(e<0||a!=S||b!=S)h[C]+=S+A})('zs-js-on','className',
   'charAt',' ',document.documentElement)//0bdx.com/zs-js-on#0.0.1</script>
 
   <style>
@@ -43,9 +43,13 @@
   </p>
 
   <script>
-    document.write('After <tt>zsJsOn()</tt> was called, it now contains:');
-    var html = document.documentElement.outerHTML;
-    document.write('<pre>&lt;' + html.slice(1,html.indexOf('>')) + '></pre>');
+    if (typeof document.documentElement.outerHTML === 'undefined') {
+      document.write('This browser does not support outerHTML');
+    } else {
+      document.write('After <tt>zsJsOn()</tt> was called, it now contains:');
+      var html = document.documentElement.outerHTML;
+      document.write('<pre>&lt;' + html.slice(1,html.indexOf('>')) + '></pre>');
+    }
   </script>
   <noscript>
     <p>The <tt>&lt;noscript></tt> elements are displayed in this user agent.</p>
