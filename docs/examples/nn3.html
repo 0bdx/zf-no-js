@@ -10,14 +10,17 @@
     <br>
     <script>
         document.write('typeof document = ' + (typeof document));
+        // NN3: typeof document = object
     </script>
     <br>
     <script>
-        document.write('typeof document.documentElement = ' + (typeof document.documentElement));
+        document.write('typeof document = ' + (typeof document.documentElement));
+        // NN3: typeof document.documentElement = undefined
     </script>
     <br>
     <script>
         document.write('typeof document.body = ' + (typeof document.body));
+        // NN3: typeof document.body = undefined
     </script>
     <br>
     <script>
@@ -32,10 +35,22 @@
     <br>
     <script>
         document.write('document.documentElement = ' + document.documentElement);
+        // NN3: document.documentElement = undefined
+    </script>
+    <br>
+    <script>
+        document.write('document.documentElement ? "yep" : "nah" = ' + document.documentElement ? "yep" : "nah");
+        // NN3: ...
     </script>
     <br>
     <script>
         document.write('document.body = ' + document.body);
+        // NN3: document.body = undefined
+    </script>
+    <br>
+    <script>
+        document.write('document = ' + document);
+        // NN3: ...
     </script>
     <br>
     <script>document.write('Done')</script>
