@@ -9,18 +9,27 @@
     <script>document.write('Various ways of checking for missing properties')</script>
     <br>
     <script>
-        var o1 = {};
-        document.write('o1.nope is ' + o1.nope);
+        document.write('typeof document.documentElement = ' + (typeof document.documentElement));
     </script>
     <br>
     <script>
-        var o2 = {};
-        document.write('typeof o2.nope is ' + (typeof o2.nope));
+        document.write('typeof document.documentElement.nope = ' + (typeof document.documentElement.nope));
     </script>
     <br>
     <script>
-        var o3 = {};
-        document.write('"nope" in o3 is ' + ("nope" in o3));
+        document.write('"documentElement" in document = ' + ("documentElement" in document));
+    </script>
+    <br>
+    <script>
+        document.write('"nope" in document.documentElement = ' + ("nope" in document.documentElement));
+    </script>
+    <br>
+    <script>
+        document.write('document.documentElement.nope = ' + document.documentElement.nope);
+    </script>
+    <br>
+    <script>
+        document.write('document.documentElement = ' + document.documentElement);
     </script>
     <br>
     <script>document.write('Done')</script>
