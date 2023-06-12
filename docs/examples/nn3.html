@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing JS on NN3</title>
+</head>
+<body>
+    <h1>Testing JS on NN3</h1>
+    <script>document.write('Various ways of checking for missing properties')</script>
+    <br>
+    <script>
+        var o1 = {};
+        document.write('o1.nope is ' + o1.nope);
+    </script>
+    <br>
+    <script>
+        var o2 = {};
+        document.write('typeof o2.nope is ' + (typeof o2.nope));
+    </script>
+    <br>
+    <script>
+        var o3 = {};
+        document.write('"nope" in o3 is ' + ("nope" in o3));
+    </script>
+    <br>
+    <script>document.write('Done')</script>
+    <br>
+</body>
+</html>
