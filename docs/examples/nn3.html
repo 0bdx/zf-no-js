@@ -95,6 +95,14 @@
     </script>
     <br>
     <br>
+    <script>document.write('<h2>The `document.prototype` object</h2>')</script>
+    <script>
+        for (var key in document.prototype) {
+            document.write('document.prototype.' + key + ' = ' + (typeof document.prototype[key]) + '<br>');
+        }
+    </script>
+    <br>
+    <br>
     <script>document.write('<h2>The `document` object</h2>')</script>
     <script>
         for (var key in document) {
@@ -157,6 +165,14 @@
             document.scripts = object
             document.styleSheets = object
         */
+    </script>
+    <br>
+    <br>
+    <script>document.write('<h2>The `window.prototype` object</h2>')</script>
+    <script>
+        for (var key in window.prototype) {
+            document.write('window.prototype.' + key + ' = ' + (typeof window.prototype[key]) + '<br>');
+        }
     </script>
     <br>
     <br>
