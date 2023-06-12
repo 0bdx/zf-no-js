@@ -112,14 +112,14 @@ sed -ix 's/: "ISC",/: "MIT",/' *e.json
 A=(§{1..3},\\n·);sed -ix "s/\"main/${A[*]}·\"main/;s/·/ /g" *e.json
 A=(§{a..f},\\n···);sed -ix "s/\"test/${A[*]}·\"test/;s/·/ /g" *e.json
 sed -ix 's/§1/"type": "module"/' *e.json
-sed -ix 's|§2|"files": [ "§0d.ts", "§0js" ]|' *e.json
+sed -ix 's|§2|"files": [ "§0d.ts", "§0js", "§0min.js" ]|' *e.json
 sed -ix 's/§3/"engines": { "node": ">= 14.0.0" }/' *e.json
 sed -ix 's/§a/"§Z:§A": "rollup -c"/' *e.json
 sed -ix 's/§b/"§Z:§B": "tsc §0js §_"/' *e.json
 sed -ix 's/§_/--allowJs --declaration --emitDeclarationOnly/' *e.json
 sed -ix 's/§c/"§Z": "for s in {§A,§B};do npm run §Z:$s;done"/' *e.json
 sed -ix 's/§A/prod/g;s/§B/types/g;s/§Z/build/g;' *e.json
-sed -ix 's/§d/"§Z:§D": "echo \\"🧬 test.js\\" && node test.js"/' *e.json
+sed -ix 's/§d/"§Z:§D": "echo \\"🧬 test.js\\"; node test.js"/' *e.json
 sed -ix 's/§e/"§Z:§E": "tsc §0js §_"/' *e.json
 sed -ix 's/§_/--allowJs --checkJs --noEmit/' *e.json
 sed -ix 's/§f/"§Z": "for s in {§D,§E};do npm run §Z:$s;done"/' *e.json
@@ -149,7 +149,7 @@ npm install rollup --save-dev
 6. Tell Node to use `import` not `require()` (avoids needing .mjs):  
    `sed -ix 's/§1/"type": "module"/' *e.json`
 7. Tell NPM which files to include as part of the published package:  
-   `sed -ix 's|§2|"files": [ "§0d.ts", "§0js" ]|' *e.json`
+   `sed -ix 's|§2|"files": [ "§0d.ts", "§0js", "§0min.js" ]|' *e.json`
 8. Specify the minimum supported Node.js version:  
    `sed -ix 's/§3/"engines": { "node": ">= 14.0.0" }/' *e.json`
 9. The first script generates the main file, __zs-js-on.js__, and then  
@@ -163,7 +163,7 @@ npm install rollup --save-dev
 10. The fourth script runs unit tests on the main file, __zs-js-on.js__,  
     and the fifth script checks it against the type declarations.  
     The sixth script is a shortcut to run both `"preflight:..."` scripts:  
-    `sed -ix 's/§d/"§Z:§D": "echo \"🧬 test.js\" && "/' *e.json`  
+    `sed -ix 's/§d/"§Z:§D": "echo \"🧬 test.js\"; "/' *e.json`  
     `sed -ix 's/§e/"§Z:§E": "tsc §0js §_"/' *e.json`  
     `sed -ix 's/§_/--allowJs --checkJs --noEmit/' *e.json`  
     `sed -ix 's/§f/"§Z": "for s in {§D,§E};do npm run §Z:$s;done"/' *e.json`  

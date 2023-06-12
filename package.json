@@ -5,7 +5,8 @@
   "type": "module",
   "files": [
     "zs-js-on.d.ts",
-    "zs-js-on.js"
+    "zs-js-on.js",
+    "zs-js-on.min.js"
   ],
   "engines": {
     "node": ">= 14.0.0"
@@ -15,7 +16,7 @@
     "build:prod": "rollup -c",
     "build:types": "tsc zs-js-on.js --allowJs --declaration --emitDeclarationOnly",
     "build": "for s in {prod,types};do npm run build:$s;done",
-    "preflight:test": "echo \"🧬 test.js\" && node test.js",
+    "preflight:test": "echo \"🧬 test.js\"; node test.js",
     "preflight:types": "tsc zs-js-on.js --allowJs --checkJs --noEmit",
     "preflight": "for s in {test,types};do npm run preflight:$s;done",
     "test": "echo \"🧪 src/test.js\" && node src/test.js"
