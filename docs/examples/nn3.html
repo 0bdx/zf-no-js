@@ -7,15 +7,35 @@
 <body>
     <h1>Testing JS on NN3</h1>
     <script>document.write('<h2>Avoiding polluting the window object</h2>')</script>
-    <script>
+    <!-- <script>
         window.polluter = function() { document.write('window.polluter() was called'); }
+        // NN3: Syntax Error [points to the f of function]
     </script>
     <script>
         document.write('window.polluter = ' + window.polluter);
+        // NN3: window.polluter = undefined
     </script>
     <br>
     <script>
         window.polluter();
+        // NN3: polluter is not a function
+    </script>
+    <script>
+        window.polluter = null;
+        document.write('After `window.polluter = null`, window.polluter = ' + window.polluter);
+        // NN3: After `window.polluter = null`, window.polluter = null
+    </script> -->
+    <script>
+        function polluter() { document.write('polluter() was called'); }
+    </script>
+    <script>
+        document.write('window.polluter = ' + window.polluter);
+        // NN3: ...
+    </script>
+    <br>
+    <script>
+        window.polluter();
+        // NN3: ...
     </script>
     <br>
     <script>
