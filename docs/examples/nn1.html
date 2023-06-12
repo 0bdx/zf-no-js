@@ -6,34 +6,21 @@
 </head>
 <body>
     <h1>Testing JS on NN1</h1>
-    <script>document.write('Some text, added by document.write()')</script>
-    <br>
     <script>function f1(){
-        document.write('This is document.write() in f1()')
+        var f1Var = 77;
+        document.write('This is document.write() in f1(). f1Var is ' + f1Var);
     };f1();</script>
     <br>
-    <script>for(var loopVar=0;loopVar<2;loopVar++){
-        document.write('<br>This is document.write() in a loop: ' + loopVar)
-    }</script>
+    <script>document.write('window.f1 is ' + window.f1)</script>
     <br>
-    <script>document.write('window.loopVar is ' + window.loopVar)</script>
+    <script>document.write('window.f1Var is ' + window.f1Var)</script>
     <br>
-    <script>if(1){
-        var ifVar = 99;
-        document.write('<br>This is document.write() in an if body: ' + ifVar)
-    }</script>
+    <script>f1 = null</script>
     <br>
-    <script>document.write('window.ifVar is ' + window.ifVar)</script>
+    <script>document.write('After f1 = null window.f1 is ' + window.f1)</script>
     <br>
-    <script>
-        delete window.ifVar;
-        document.write('After delete window.ifVar: ' + window.ifVar)
-    </script>
-    <br>
-    <script>
-        window.ifVar = undefined;
-        document.write('After window.ifVar = undefined: ' + window.ifVar)
-    </script>
+    <script>document.write('After f1 = null window.f1Var is ' + window.f1Var)</script>
+
     <br>
 </body>
 </html>
