@@ -13,8 +13,10 @@
     html.zs-js-on .js-switched-on { display:block }
   </style>
 
-  <script>!function zsJsOn(C,h){h[C]+=(h[C]?' ':'')+'zs-js-on'}('className',
-  document.documentElement)//0bdx.com/zs-js-on#0.0.1</script>
+  <!-- Add zs-js-on to <html class...> if JS is running --><script>!function(
+  A,C,c,S,h,a,b,e,o){o=h[C];if(!o)return h[C]=A;o=S+o+S;e=o.indexOf(A);a=o[c](e
+  +A.length);b=o[c](e-1);if(e<0||a!=S||b!=S)h[C]+=S+A}('zs-js-on','className',
+  'charAt',' ',document.documentElement)//0bdx.com/zs-js-on#0.0.1</script>
 
   <style>
     html{margin:0 2em;text-align:center;font:21px Arial,sans-serif;
