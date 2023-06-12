@@ -14,9 +14,9 @@
   </style>
 
   <!-- Add zs-js-on to <html class...> if JS is running --><script>function f(
-  A,C,c,S,h,a,b,e,o){o=h[C];if(!o)return h[C]=A;o=S+o+S;e=o.indexOf(A);a=o[c](e
-  +A.length);b=o[c](e-1);if(e<0||a!=S||b!=S)h[C]+=S+A}f('zs-js-on','className',
-  'charAt',' ',document.documentElement)//0bdx.com/zs-js-on#0.0.1</script>
+  A,C,c,S,h,a,b,e,o){o=h[C];!o?h[C]=A:o=S+o+S;e=o.indexOf(A);a=o[c](e
+  +A.length);b=o[c](e-1);if(e<0||a!=S||b!=S)h[C]+=S+A};f('zs-js-on','className',
+  'charAt',' ',document.documentElement);f=0//0bdx.com/zs-js-on#0.0.1</script>
 
   <style>
     html{margin:0 2em;text-align:center;font:21px Arial,sans-serif;
@@ -34,6 +34,10 @@
 <body>
   <h2>@zs-/js-on 0.0.1</h2>
   <h1>Example 2: No pre-existing classes</h1>
+
+  <script>document.write('After f=0 window.f is ' + window.f)</script>
+  <br>
+  <script>document.write('document.documentElement.className is ' + document.documentElement.className)</script>
 
   <h3 class="js-switched-off"><tt>zsJsOn()</tt> did NOT detect JS is switched on.</h3>
   <h3 class="js-switched-on"><tt>zsJsOn()</tt> detected that JS is switched on.</h3>
