@@ -9,27 +9,33 @@
     <script>document.write('Various ways of checking for missing properties')</script>
     <br>
     <script>
+        document.write('typeof document = ' + (typeof document));
+    </script>
+    <br>
+    <script>
         document.write('typeof document.documentElement = ' + (typeof document.documentElement));
     </script>
     <br>
     <script>
-        document.write('typeof document.documentElement.nope = ' + (typeof document.documentElement.nope));
+        document.write('typeof document.body = ' + (typeof document.body));
     </script>
     <br>
     <script>
         document.write('"documentElement" in document = ' + ("documentElement" in document));
+        // NN3: missing ) in parenthetical [points to i of in]
     </script>
     <br>
     <script>
-        document.write('"nope" in document.documentElement = ' + ("nope" in document.documentElement));
-    </script>
-    <br>
-    <script>
-        document.write('document.documentElement.nope = ' + document.documentElement.nope);
+        document.write('"body" in document = ' + ("body" in document));
+        // NN3: missing ) in parenthetical [points to i of in]
     </script>
     <br>
     <script>
         document.write('document.documentElement = ' + document.documentElement);
+    </script>
+    <br>
+    <script>
+        document.write('document.body = ' + document.body);
     </script>
     <br>
     <script>document.write('Done')</script>
