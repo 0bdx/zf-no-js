@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Testing JS on NN3</title>
+    <title>Testing JS on NN3+</title>
 </head>
 <body>
-    <h1>Testing JS on NN3</h1>
+    <h1>Testing JS on NN3+</h1>
     <script>document.write('<h2>Avoiding polluting the window object</h2>')</script>
     <!-- <script>
         window.polluter = function() { document.write('window.polluter() was called'); }
@@ -30,35 +30,36 @@
     </script>
     <script>
         document.write('window.polluter = ' + window.polluter);
-        // NN3:  window.polluter = function polluter() { document.write("polluter() was called"); } 
+        // NN3,4,IE4: window.polluter = function polluter() { document.write("polluter() was called"); } 
     </script>
     <br>
     <script>
         window.polluter();
-        // NN3: polluter() was called
+        // NN3,4,IE4: polluter() was called
     </script>
     <br>
     <script>
         window.polluter = 0;
         document.write('After `window.polluter = 0`, window.polluter = ' + window.polluter);
-        // NN3: After `window.polluter = 0`, window.polluter = 0
+        // NN3,4,IE4: After `window.polluter = 0`, window.polluter = 0
     </script>
     <br>
     <br>
     <script>document.write('<h2>Various ways of checking for missing properties</h2>')</script>
     <script>
         document.write('typeof document = ' + (typeof document));
-        // NN3: typeof document = object
+        // NN3,4,IE4: typeof document = object
     </script>
     <br>
     <script>
         document.write('typeof document.documentElement = ' + (typeof document.documentElement));
-        // NN3: typeof document.documentElement = undefined
+        // NN3,4,IE4: typeof document.documentElement = undefined
     </script>
     <br>
     <script>
         document.write('typeof document.body = ' + (typeof document.body));
-        // NN3: typeof document.body = undefined
+        // NN3,4: typeof document.body = undefined
+        // IE4: typeof document.body = object
     </script>
     <br>
     <!-- <script>
@@ -73,22 +74,24 @@
     <br> -->
     <script>
         document.write('document.documentElement = ' + document.documentElement);
-        // NN3: document.documentElement = undefined
+        // NN3,4,IE4: document.documentElement = undefined
     </script>
     <br>
     <script>
         document.write('document.documentElement ? "yep" : "nah" = ' + (document.documentElement ? "yep" : "nah"));
-        // NN3: document.documentElement ? "yep" : "nah" = nah
+        // NN3,4,IE4: document.documentElement ? "yep" : "nah" = nah
     </script>
     <br>
     <script>
         document.write('document.body = ' + document.body);
-        // NN3: document.body = undefined
+        // NN3,4: document.body = undefined
+        // IE4: document.body = [object BODY]
     </script>
     <br>
     <script>
         document.write('document = ' + document);
-        // NN3: document =
+        // NN3,4: document =
+        // IE4: document = [object document]
     </script>
     <br>
     <br>
@@ -116,6 +119,44 @@
             document.vlinkColor = string
             document.alinkColor = string
         */
+        /* NN4:
+            document.location = object
+            document.forms = object
+            document.links = object
+            document.anchors = object
+        */
+        /* IE4:
+            document.activeElement = object
+            document.alinkColor = string
+            document.bgColor = string
+            document.body = object
+            document.charset = string
+            document.cookie = object
+            document.defaultCharset = string
+            document.domain = string
+            document.expando = boolean
+            document.fgColor = string
+            document.fileSize = number
+            document.lastModified = string
+            document.linkColor = string
+            document.location = object
+            document.readyState = string
+            document.referrer = string
+            document.selection = object
+            document.URL = string
+            document.vlinkColor = string
+            document.all = object
+            document.anchors = object
+            document.applets = object
+            document.embeds = object
+            document.forms = object
+            document.frames = object
+            document.images = object
+            document.links = object
+            document.plugins = object
+            document.scripts = object
+            document.styleSheets = object
+        */
     </script>
     <br>
     <br>
@@ -139,6 +180,38 @@
             window.history = object
             window.location = object
             window.navigator = object
+        */
+        /* NN4:
+            window.length = number
+            window.frames = object
+            window.parent = object
+            window.top = object
+            window.self = object
+            window.name = string
+            window.status = object
+            window.defaultStatus = string
+            window.opener = object
+            window.closed = boolean
+            window.innerWidth = number
+            window.innerHeight = number
+            window.outerWidth = number
+            window.outerHeight = number
+            window.screenX = number
+            window.screenY = number
+            window.pageYOffset = number
+            window.pageXOffset = number
+            window.secure = boolean
+            window.frameRate = number
+            window.offscreenBuffering = string
+            window.document = object
+            window.history = object
+            window.location = object
+            window.crypto = object
+            window.pkcs11 = object
+        */
+        /* IE4:
+            window.offscreenBuffering = string
+            window.external = object
         */
     </script>
     <br>
