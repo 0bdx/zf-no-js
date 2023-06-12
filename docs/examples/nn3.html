@@ -8,11 +8,11 @@
     <h1>Testing JS on NN3+</h1>
     <script>document.write('<h2>Avoiding polluting the window object</h2>')</script>
     <!-- <script>
-        window.polluter = function() { document.write('window.polluter() was called'); }
+        window.polluter = function() { document.write('<br>window.polluter() was called'); }
         // NN3: Syntax Error [points to the f of function]
     </script>
     <script>
-        document.write('window.polluter = ' + window.polluter);
+        document.write('<br>window.polluter = ' + window.polluter);
         // NN3: window.polluter = undefined
     </script>
     <br>
@@ -100,6 +100,16 @@
         for (var key in document.__proto__) {
             document.write('document.__proto__.' + key + ' = ' + (typeof document.__proto__[key]) + '<br>');
         }
+        /* NN3,IE4:
+            [empty]
+        */
+        /* NN4:
+            document.__proto__.forms = undefined
+            ...[same as NN3 document. items]
+            document.__proto__.alinkColor = undefined
+            document.__proto__.width = undefined
+            document.__proto__.height = undefined
+        */
     </script>
     <br>
     <br>
@@ -173,6 +183,9 @@
         for (var key in window.__proto__) {
             document.write('window.__proto__.' + key + ' = ' + (typeof window.__proto__[key]) + '<br>');
         }
+        /* NN3,4,IE4:
+            [empty]
+        */
     </script>
     <br>
     <br>
@@ -231,7 +244,363 @@
         */
     </script>
     <br>
+    <br>
+    <script>document.write('<h2>Expected `document` and `window` functions</h2>')</script>
+    <script>
+document.write('<br>document.write = function: ' + typeof document.write);
+document.write('<br>document.getElementsByTagName = function: ' + typeof document.getElementsByTagName);
+document.write('<br>document.getElementsByTagNameNS = function: ' + typeof document.getElementsByTagNameNS);
+document.write('<br>document.getElementsByClassName = function: ' + typeof document.getElementsByClassName);
+document.write('<br>document.getElementById = function: ' + typeof document.getElementById);
+document.write('<br>document.createElement = function: ' + typeof document.createElement);
+document.write('<br>document.createElementNS = function: ' + typeof document.createElementNS);
+document.write('<br>document.createDocumentFragment = function: ' + typeof document.createDocumentFragment);
+document.write('<br>document.createTextNode = function: ' + typeof document.createTextNode);
+document.write('<br>document.createComment = function: ' + typeof document.createComment);
+document.write('<br>document.createProcessingInstruction = function: ' + typeof document.createProcessingInstruction);
+document.write('<br>document.importNode = function: ' + typeof document.importNode);
+document.write('<br>document.adoptNode = function: ' + typeof document.adoptNode);
+document.write('<br>document.createEvent = function: ' + typeof document.createEvent);
+document.write('<br>document.createRange = function: ' + typeof document.createRange);
+document.write('<br>document.createNodeIterator = function: ' + typeof document.createNodeIterator);
+document.write('<br>document.createTreeWalker = function: ' + typeof document.createTreeWalker);
+document.write('<br>document.createCDATASection = function: ' + typeof document.createCDATASection);
+document.write('<br>document.createAttribute = function: ' + typeof document.createAttribute);
+document.write('<br>document.createAttributeNS = function: ' + typeof document.createAttributeNS);
+document.write('<br>document.getElementsByName = function: ' + typeof document.getElementsByName);
+document.write('<br>document.open = function: ' + typeof document.open);
+document.write('<br>document.close = function: ' + typeof document.close);
+document.write('<br>document.writeln = function: ' + typeof document.writeln);
+document.write('<br>document.hasFocus = function: ' + typeof document.hasFocus);
+document.write('<br>document.execCommand = function: ' + typeof document.execCommand);
+document.write('<br>document.queryCommandEnabled = function: ' + typeof document.queryCommandEnabled);
+document.write('<br>document.queryCommandIndeterm = function: ' + typeof document.queryCommandIndeterm);
+document.write('<br>document.queryCommandState = function: ' + typeof document.queryCommandState);
+document.write('<br>document.queryCommandSupported = function: ' + typeof document.queryCommandSupported);
+document.write('<br>document.queryCommandValue = function: ' + typeof document.queryCommandValue);
+document.write('<br>document.releaseCapture = function: ' + typeof document.releaseCapture);
+document.write('<br>document.mozSetImageElement = function: ' + typeof document.mozSetImageElement);
+document.write('<br>document.clear = function: ' + typeof document.clear);
+document.write('<br>document.captureEvents = function: ' + typeof document.captureEvents);
+document.write('<br>document.releaseEvents = function: ' + typeof document.releaseEvents);
+document.write('<br>document.exitFullscreen = function: ' + typeof document.exitFullscreen);
+document.write('<br>document.mozCancelFullScreen = function: ' + typeof document.mozCancelFullScreen);
+document.write('<br>document.exitPointerLock = function: ' + typeof document.exitPointerLock);
+document.write('<br>document.enableStyleSheetsForSet = function: ' + typeof document.enableStyleSheetsForSet);
+document.write('<br>document.caretPositionFromPoint = function: ' + typeof document.caretPositionFromPoint);
+document.write('<br>document.querySelector = function: ' + typeof document.querySelector);
+document.write('<br>document.querySelectorAll = function: ' + typeof document.querySelectorAll);
+document.write('<br>document.getSelection = function: ' + typeof document.getSelection);
+document.write('<br>document.hasStorageAccess = function: ' + typeof document.hasStorageAccess);
+document.write('<br>document.requestStorageAccess = function: ' + typeof document.requestStorageAccess);
+document.write('<br>document.elementFromPoint = function: ' + typeof document.elementFromPoint);
+document.write('<br>document.elementsFromPoint = function: ' + typeof document.elementsFromPoint);
+document.write('<br>document.getAnimations = function: ' + typeof document.getAnimations);
+document.write('<br>document.prepend = function: ' + typeof document.prepend);
+document.write('<br>document.append = function: ' + typeof document.append);
+document.write('<br>document.replaceChildren = function: ' + typeof document.replaceChildren);
+document.write('<br>document.createExpression = function: ' + typeof document.createExpression);
+document.write('<br>document.createNSResolver = function: ' + typeof document.createNSResolver);
+document.write('<br>document.evaluate = function: ' + typeof document.evaluate);
+document.write('<br>document.onreadystatechange = object: ' + typeof document.onreadystatechange);
+document.write('<br>document.onbeforescriptexecute = object: ' + typeof document.onbeforescriptexecute);
+document.write('<br>document.onafterscriptexecute = object: ' + typeof document.onafterscriptexecute);
+document.write('<br>document.onfullscreenchange = object: ' + typeof document.onfullscreenchange);
+document.write('<br>document.onfullscreenerror = object: ' + typeof document.onfullscreenerror);
+document.write('<br>document.onpointerlockchange = object: ' + typeof document.onpointerlockchange);
+document.write('<br>document.onpointerlockerror = object: ' + typeof document.onpointerlockerror);
+document.write('<br>document.onvisibilitychange = object: ' + typeof document.onvisibilitychange);
+document.write('<br>document.onabort = object: ' + typeof document.onabort);
+document.write('<br>document.onblur = object: ' + typeof document.onblur);
+document.write('<br>document.onfocus = object: ' + typeof document.onfocus);
+document.write('<br>document.onauxclick = object: ' + typeof document.onauxclick);
+document.write('<br>document.onbeforeinput = object: ' + typeof document.onbeforeinput);
+document.write('<br>document.oncanplay = object: ' + typeof document.oncanplay);
+document.write('<br>document.oncanplaythrough = object: ' + typeof document.oncanplaythrough);
+document.write('<br>document.onchange = object: ' + typeof document.onchange);
+document.write('<br>document.onclick = object: ' + typeof document.onclick);
+document.write('<br>document.onclose = object: ' + typeof document.onclose);
+document.write('<br>document.oncontextmenu = object: ' + typeof document.oncontextmenu);
+document.write('<br>document.oncopy = object: ' + typeof document.oncopy);
+document.write('<br>document.oncuechange = object: ' + typeof document.oncuechange);
+document.write('<br>document.oncut = object: ' + typeof document.oncut);
+document.write('<br>document.ondblclick = object: ' + typeof document.ondblclick);
+document.write('<br>document.ondrag = object: ' + typeof document.ondrag);
+document.write('<br>document.ondragend = object: ' + typeof document.ondragend);
+document.write('<br>document.ondragenter = object: ' + typeof document.ondragenter);
+document.write('<br>document.ondragexit = object: ' + typeof document.ondragexit);
+document.write('<br>document.ondragleave = object: ' + typeof document.ondragleave);
+document.write('<br>document.ondragover = object: ' + typeof document.ondragover);
+document.write('<br>document.ondragstart = object: ' + typeof document.ondragstart);
+document.write('<br>document.ondrop = object: ' + typeof document.ondrop);
+document.write('<br>document.ondurationchange = object: ' + typeof document.ondurationchange);
+document.write('<br>document.onemptied = object: ' + typeof document.onemptied);
+document.write('<br>document.onended = object: ' + typeof document.onended);
+document.write('<br>document.onformdata = object: ' + typeof document.onformdata);
+document.write('<br>document.oninput = object: ' + typeof document.oninput);
+document.write('<br>document.oninvalid = object: ' + typeof document.oninvalid);
+document.write('<br>document.onkeydown = object: ' + typeof document.onkeydown);
+document.write('<br>document.onkeypress = object: ' + typeof document.onkeypress);
+document.write('<br>document.onkeyup = object: ' + typeof document.onkeyup);
+document.write('<br>document.onload = object: ' + typeof document.onload);
+document.write('<br>document.onloadeddata = object: ' + typeof document.onloadeddata);
+document.write('<br>document.onloadedmetadata = object: ' + typeof document.onloadedmetadata);
+document.write('<br>document.onloadstart = object: ' + typeof document.onloadstart);
+document.write('<br>document.onmousedown = object: ' + typeof document.onmousedown);
+document.write('<br>document.onmouseenter = object: ' + typeof document.onmouseenter);
+document.write('<br>document.onmouseleave = object: ' + typeof document.onmouseleave);
+document.write('<br>document.onmousemove = object: ' + typeof document.onmousemove);
+document.write('<br>document.onmouseout = object: ' + typeof document.onmouseout);
+document.write('<br>document.onmouseover = object: ' + typeof document.onmouseover);
+document.write('<br>document.onmouseup = object: ' + typeof document.onmouseup);
+document.write('<br>document.onwheel = object: ' + typeof document.onwheel);
+document.write('<br>document.onpaste = object: ' + typeof document.onpaste);
+document.write('<br>document.onpause = object: ' + typeof document.onpause);
+document.write('<br>document.onplay = object: ' + typeof document.onplay);
+document.write('<br>document.onplaying = object: ' + typeof document.onplaying);
+document.write('<br>document.onprogress = object: ' + typeof document.onprogress);
+document.write('<br>document.onratechange = object: ' + typeof document.onratechange);
+document.write('<br>document.onreset = object: ' + typeof document.onreset);
+document.write('<br>document.onresize = object: ' + typeof document.onresize);
+document.write('<br>document.onscroll = object: ' + typeof document.onscroll);
+document.write('<br>document.onscrollend = object: ' + typeof document.onscrollend);
+document.write('<br>document.onsecuritypolicyviolation = object: ' + typeof document.onsecuritypolicyviolation);
+document.write('<br>document.onseeked = object: ' + typeof document.onseeked);
+document.write('<br>document.onseeking = object: ' + typeof document.onseeking);
+document.write('<br>document.onselect = object: ' + typeof document.onselect);
+document.write('<br>document.onslotchange = object: ' + typeof document.onslotchange);
+document.write('<br>document.onstalled = object: ' + typeof document.onstalled);
+document.write('<br>document.onsubmit = object: ' + typeof document.onsubmit);
+document.write('<br>document.onsuspend = object: ' + typeof document.onsuspend);
+document.write('<br>document.ontimeupdate = object: ' + typeof document.ontimeupdate);
+document.write('<br>document.onvolumechange = object: ' + typeof document.onvolumechange);
+document.write('<br>document.onwaiting = object: ' + typeof document.onwaiting);
+document.write('<br>document.onselectstart = object: ' + typeof document.onselectstart);
+document.write('<br>document.onselectionchange = object: ' + typeof document.onselectionchange);
+document.write('<br>document.ontoggle = object: ' + typeof document.ontoggle);
+document.write('<br>document.onpointercancel = object: ' + typeof document.onpointercancel);
+document.write('<br>document.onpointerdown = object: ' + typeof document.onpointerdown);
+document.write('<br>document.onpointerup = object: ' + typeof document.onpointerup);
+document.write('<br>document.onpointermove = object: ' + typeof document.onpointermove);
+document.write('<br>document.onpointerout = object: ' + typeof document.onpointerout);
+document.write('<br>document.onpointerover = object: ' + typeof document.onpointerover);
+document.write('<br>document.onpointerenter = object: ' + typeof document.onpointerenter);
+document.write('<br>document.onpointerleave = object: ' + typeof document.onpointerleave);
+document.write('<br>document.ongotpointercapture = object: ' + typeof document.ongotpointercapture);
+document.write('<br>document.onlostpointercapture = object: ' + typeof document.onlostpointercapture);
+document.write('<br>document.onmozfullscreenchange = object: ' + typeof document.onmozfullscreenchange);
+document.write('<br>document.onmozfullscreenerror = object: ' + typeof document.onmozfullscreenerror);
+document.write('<br>document.onanimationcancel = object: ' + typeof document.onanimationcancel);
+document.write('<br>document.onanimationend = object: ' + typeof document.onanimationend);
+document.write('<br>document.onanimationiteration = object: ' + typeof document.onanimationiteration);
+document.write('<br>document.onanimationstart = object: ' + typeof document.onanimationstart);
+document.write('<br>document.ontransitioncancel = object: ' + typeof document.ontransitioncancel);
+document.write('<br>document.ontransitionend = object: ' + typeof document.ontransitionend);
+document.write('<br>document.ontransitionrun = object: ' + typeof document.ontransitionrun);
+document.write('<br>document.ontransitionstart = object: ' + typeof document.ontransitionstart);
+document.write('<br>document.onwebkitanimationend = object: ' + typeof document.onwebkitanimationend);
+document.write('<br>document.onwebkitanimationiteration = object: ' + typeof document.onwebkitanimationiteration);
+document.write('<br>document.onwebkitanimationstart = object: ' + typeof document.onwebkitanimationstart);
+document.write('<br>document.onwebkittransitionend = object: ' + typeof document.onwebkittransitionend);
+document.write('<br>document.onerror = object: ' + typeof document.onerror);
+document.write('<br>document.getRootNode = function: ' + typeof document.getRootNode);
+document.write('<br>document.hasChildNodes = function: ' + typeof document.hasChildNodes);
+document.write('<br>document.insertBefore = function: ' + typeof document.insertBefore);
+document.write('<br>document.appendChild = function: ' + typeof document.appendChild);
+document.write('<br>document.replaceChild = function: ' + typeof document.replaceChild);
+document.write('<br>document.removeChild = function: ' + typeof document.removeChild);
+document.write('<br>document.normalize = function: ' + typeof document.normalize);
+document.write('<br>document.cloneNode = function: ' + typeof document.cloneNode);
+document.write('<br>document.isSameNode = function: ' + typeof document.isSameNode);
+document.write('<br>document.isEqualNode = function: ' + typeof document.isEqualNode);
+document.write('<br>document.compareDocumentPosition = function: ' + typeof document.compareDocumentPosition);
+document.write('<br>document.contains = function: ' + typeof document.contains);
+document.write('<br>document.lookupPrefix = function: ' + typeof document.lookupPrefix);
+document.write('<br>document.lookupNamespaceURI = function: ' + typeof document.lookupNamespaceURI);
+document.write('<br>document.isDefaultNamespace = function: ' + typeof document.isDefaultNamespace);
+document.write('<br>document.nodeType = number: ' + typeof document.nodeType);
+document.write('<br>document.nodeName = string: ' + typeof document.nodeName);
+document.write('<br>document.baseURI = string: ' + typeof document.baseURI);
+document.write('<br>document.isConnected = boolean: ' + typeof document.isConnected);
+document.write('<br>document.ownerDocument = object: ' + typeof document.ownerDocument);
+document.write('<br>document.parentNode = object: ' + typeof document.parentNode);
+document.write('<br>document.parentElement = object: ' + typeof document.parentElement);
+document.write('<br>document.childNodes = object: ' + typeof document.childNodes);
+document.write('<br>document.firstChild = object: ' + typeof document.firstChild);
+document.write('<br>document.lastChild = object: ' + typeof document.lastChild);
+document.write('<br>document.previousSibling = object: ' + typeof document.previousSibling);
+document.write('<br>document.nextSibling = object: ' + typeof document.nextSibling);
+document.write('<br>document.nodeValue = object: ' + typeof document.nodeValue);
+document.write('<br>document.textContent = object: ' + typeof document.textContent);
+document.write('<br>document.addEventListener = function: ' + typeof document.addEventListener);
+document.write('<br>document.removeEventListener = function: ' + typeof document.removeEventListener);
+document.write('<br>document.dispatchEvent = function: ' + typeof document.dispatchEvent);
+document.write('<br>window.close = function: ' + typeof window.close);
+document.write('<br>window.stop = function: ' + typeof window.stop);
+document.write('<br>window.focus = function: ' + typeof window.focus);
+document.write('<br>window.blur = function: ' + typeof window.blur);
+document.write('<br>window.open = function: ' + typeof window.open);
+document.write('<br>window.alert = function: ' + typeof window.alert);
+document.write('<br>window.confirm = function: ' + typeof window.confirm);
+document.write('<br>window.prompt = function: ' + typeof window.prompt);
+document.write('<br>window.print = function: ' + typeof window.print);
+document.write('<br>window.postMessage = function: ' + typeof window.postMessage);
+document.write('<br>window.captureEvents = function: ' + typeof window.captureEvents);
+document.write('<br>window.releaseEvents = function: ' + typeof window.releaseEvents);
+document.write('<br>window.getSelection = function: ' + typeof window.getSelection);
+document.write('<br>window.getComputedStyle = function: ' + typeof window.getComputedStyle);
+document.write('<br>window.matchMedia = function: ' + typeof window.matchMedia);
+document.write('<br>window.moveTo = function: ' + typeof window.moveTo);
+document.write('<br>window.moveBy = function: ' + typeof window.moveBy);
+document.write('<br>window.resizeTo = function: ' + typeof window.resizeTo);
+document.write('<br>window.resizeBy = function: ' + typeof window.resizeBy);
+document.write('<br>window.scroll = function: ' + typeof window.scroll);
+document.write('<br>window.scrollTo = function: ' + typeof window.scrollTo);
+document.write('<br>window.scrollBy = function: ' + typeof window.scrollBy);
+document.write('<br>window.getDefaultComputedStyle = function: ' + typeof window.getDefaultComputedStyle);
+document.write('<br>window.scrollByLines = function: ' + typeof window.scrollByLines);
+document.write('<br>window.scrollByPages = function: ' + typeof window.scrollByPages);
+document.write('<br>window.sizeToContent = function: ' + typeof window.sizeToContent);
+document.write('<br>window.updateCommands = function: ' + typeof window.updateCommands);
+document.write('<br>window.find = function: ' + typeof window.find);
+document.write('<br>window.dump = function: ' + typeof window.dump);
+document.write('<br>window.setResizable = function: ' + typeof window.setResizable);
+document.write('<br>window.requestIdleCallback = function: ' + typeof window.requestIdleCallback);
+document.write('<br>window.cancelIdleCallback = function: ' + typeof window.cancelIdleCallback);
+document.write('<br>window.requestAnimationFrame = function: ' + typeof window.requestAnimationFrame);
+document.write('<br>window.cancelAnimationFrame = function: ' + typeof window.cancelAnimationFrame);
+document.write('<br>window.reportError = function: ' + typeof window.reportError);
+document.write('<br>window.btoa = function: ' + typeof window.btoa);
+document.write('<br>window.atob = function: ' + typeof window.atob);
+document.write('<br>window.setTimeout = function: ' + typeof window.setTimeout);
+document.write('<br>window.clearTimeout = function: ' + typeof window.clearTimeout);
+document.write('<br>window.setInterval = function: ' + typeof window.setInterval);
+document.write('<br>window.clearInterval = function: ' + typeof window.clearInterval);
+document.write('<br>window.queueMicrotask = function: ' + typeof window.queueMicrotask);
+document.write('<br>window.createImageBitmap = function: ' + typeof window.createImageBitmap);
+document.write('<br>window.structuredClone = function: ' + typeof window.structuredClone);
+document.write('<br>window.fetch = function: ' + typeof window.fetch);
+document.write('<br>window.ondevicemotion = object: ' + typeof window.ondevicemotion);
+document.write('<br>window.ondeviceorientation = object: ' + typeof window.ondeviceorientation);
+document.write('<br>window.ondeviceorientationabsolute = object: ' + typeof window.ondeviceorientationabsolute);
+document.write('<br>window.onabort = object: ' + typeof window.onabort);
+document.write('<br>window.onblur = object: ' + typeof window.onblur);
+document.write('<br>window.onfocus = object: ' + typeof window.onfocus);
+document.write('<br>window.onauxclick = object: ' + typeof window.onauxclick);
+document.write('<br>window.onbeforeinput = object: ' + typeof window.onbeforeinput);
+document.write('<br>window.oncanplay = object: ' + typeof window.oncanplay);
+document.write('<br>window.oncanplaythrough = object: ' + typeof window.oncanplaythrough);
+document.write('<br>window.onchange = object: ' + typeof window.onchange);
+document.write('<br>window.onclick = object: ' + typeof window.onclick);
+document.write('<br>window.onclose = object: ' + typeof window.onclose);
+document.write('<br>window.oncontextmenu = object: ' + typeof window.oncontextmenu);
+document.write('<br>window.oncopy = object: ' + typeof window.oncopy);
+document.write('<br>window.oncuechange = object: ' + typeof window.oncuechange);
+document.write('<br>window.oncut = object: ' + typeof window.oncut);
+document.write('<br>window.ondblclick = object: ' + typeof window.ondblclick);
+document.write('<br>window.ondrag = object: ' + typeof window.ondrag);
+document.write('<br>window.ondragend = object: ' + typeof window.ondragend);
+document.write('<br>window.ondragenter = object: ' + typeof window.ondragenter);
+document.write('<br>window.ondragexit = object: ' + typeof window.ondragexit);
+document.write('<br>window.ondragleave = object: ' + typeof window.ondragleave);
+document.write('<br>window.ondragover = object: ' + typeof window.ondragover);
+document.write('<br>window.ondragstart = object: ' + typeof window.ondragstart);
+document.write('<br>window.ondrop = object: ' + typeof window.ondrop);
+document.write('<br>window.ondurationchange = object: ' + typeof window.ondurationchange);
+document.write('<br>window.onemptied = object: ' + typeof window.onemptied);
+document.write('<br>window.onended = object: ' + typeof window.onended);
+document.write('<br>window.onformdata = object: ' + typeof window.onformdata);
+document.write('<br>window.oninput = object: ' + typeof window.oninput);
+document.write('<br>window.oninvalid = object: ' + typeof window.oninvalid);
+document.write('<br>window.onkeydown = object: ' + typeof window.onkeydown);
+document.write('<br>window.onkeypress = object: ' + typeof window.onkeypress);
+document.write('<br>window.onkeyup = object: ' + typeof window.onkeyup);
+document.write('<br>window.onload = object: ' + typeof window.onload);
+document.write('<br>window.onloadeddata = object: ' + typeof window.onloadeddata);
+document.write('<br>window.onloadedmetadata = object: ' + typeof window.onloadedmetadata);
+document.write('<br>window.onloadstart = object: ' + typeof window.onloadstart);
+document.write('<br>window.onmousedown = object: ' + typeof window.onmousedown);
+document.write('<br>window.onmouseenter = object: ' + typeof window.onmouseenter);
+document.write('<br>window.onmouseleave = object: ' + typeof window.onmouseleave);
+document.write('<br>window.onmousemove = object: ' + typeof window.onmousemove);
+document.write('<br>window.onmouseout = object: ' + typeof window.onmouseout);
+document.write('<br>window.onmouseover = object: ' + typeof window.onmouseover);
+document.write('<br>window.onmouseup = object: ' + typeof window.onmouseup);
+document.write('<br>window.onwheel = object: ' + typeof window.onwheel);
+document.write('<br>window.onpaste = object: ' + typeof window.onpaste);
+document.write('<br>window.onpause = object: ' + typeof window.onpause);
+document.write('<br>window.onplay = object: ' + typeof window.onplay);
+document.write('<br>window.onplaying = object: ' + typeof window.onplaying);
+document.write('<br>window.onprogress = object: ' + typeof window.onprogress);
+document.write('<br>window.onratechange = object: ' + typeof window.onratechange);
+document.write('<br>window.onreset = object: ' + typeof window.onreset);
+document.write('<br>window.onresize = object: ' + typeof window.onresize);
+document.write('<br>window.onscroll = object: ' + typeof window.onscroll);
+document.write('<br>window.onscrollend = object: ' + typeof window.onscrollend);
+document.write('<br>window.onsecuritypolicyviolation = object: ' + typeof window.onsecuritypolicyviolation);
+document.write('<br>window.onseeked = object: ' + typeof window.onseeked);
+document.write('<br>window.onseeking = object: ' + typeof window.onseeking);
+document.write('<br>window.onselect = object: ' + typeof window.onselect);
+document.write('<br>window.onslotchange = object: ' + typeof window.onslotchange);
+document.write('<br>window.onstalled = object: ' + typeof window.onstalled);
+document.write('<br>window.onsubmit = object: ' + typeof window.onsubmit);
+document.write('<br>window.onsuspend = object: ' + typeof window.onsuspend);
+document.write('<br>window.ontimeupdate = object: ' + typeof window.ontimeupdate);
+document.write('<br>window.onvolumechange = object: ' + typeof window.onvolumechange);
+document.write('<br>window.onwaiting = object: ' + typeof window.onwaiting);
+document.write('<br>window.onselectstart = object: ' + typeof window.onselectstart);
+document.write('<br>window.onselectionchange = object: ' + typeof window.onselectionchange);
+document.write('<br>window.ontoggle = object: ' + typeof window.ontoggle);
+document.write('<br>window.onpointercancel = object: ' + typeof window.onpointercancel);
+document.write('<br>window.onpointerdown = object: ' + typeof window.onpointerdown);
+document.write('<br>window.onpointerup = object: ' + typeof window.onpointerup);
+document.write('<br>window.onpointermove = object: ' + typeof window.onpointermove);
+document.write('<br>window.onpointerout = object: ' + typeof window.onpointerout);
+document.write('<br>window.onpointerover = object: ' + typeof window.onpointerover);
+document.write('<br>window.onpointerenter = object: ' + typeof window.onpointerenter);
+document.write('<br>window.onpointerleave = object: ' + typeof window.onpointerleave);
+document.write('<br>window.ongotpointercapture = object: ' + typeof window.ongotpointercapture);
+document.write('<br>window.onlostpointercapture = object: ' + typeof window.onlostpointercapture);
+document.write('<br>window.onmozfullscreenchange = object: ' + typeof window.onmozfullscreenchange);
+document.write('<br>window.onmozfullscreenerror = object: ' + typeof window.onmozfullscreenerror);
+document.write('<br>window.onanimationcancel = object: ' + typeof window.onanimationcancel);
+document.write('<br>window.onanimationend = object: ' + typeof window.onanimationend);
+document.write('<br>window.onanimationiteration = object: ' + typeof window.onanimationiteration);
+document.write('<br>window.onanimationstart = object: ' + typeof window.onanimationstart);
+document.write('<br>window.ontransitioncancel = object: ' + typeof window.ontransitioncancel);
+document.write('<br>window.ontransitionend = object: ' + typeof window.ontransitionend);
+document.write('<br>window.ontransitionrun = object: ' + typeof window.ontransitionrun);
+document.write('<br>window.ontransitionstart = object: ' + typeof window.ontransitionstart);
+document.write('<br>window.onwebkitanimationend = object: ' + typeof window.onwebkitanimationend);
+document.write('<br>window.onwebkitanimationiteration = object: ' + typeof window.onwebkitanimationiteration);
+document.write('<br>window.onwebkitanimationstart = object: ' + typeof window.onwebkitanimationstart);
+document.write('<br>window.onwebkittransitionend = object: ' + typeof window.onwebkittransitionend);
+document.write('<br>window.onerror = object: ' + typeof window.onerror);
+document.write('<br>window.onafterprint = object: ' + typeof window.onafterprint);
+document.write('<br>window.onbeforeprint = object: ' + typeof window.onbeforeprint);
+document.write('<br>window.onbeforeunload = object: ' + typeof window.onbeforeunload);
+document.write('<br>window.onhashchange = object: ' + typeof window.onhashchange);
+document.write('<br>window.onlanguagechange = object: ' + typeof window.onlanguagechange);
+document.write('<br>window.onmessage = object: ' + typeof window.onmessage);
+document.write('<br>window.onmessageerror = object: ' + typeof window.onmessageerror);
+document.write('<br>window.onoffline = object: ' + typeof window.onoffline);
+document.write('<br>window.ononline = object: ' + typeof window.ononline);
+document.write('<br>window.onpagehide = object: ' + typeof window.onpagehide);
+document.write('<br>window.onpageshow = object: ' + typeof window.onpageshow);
+document.write('<br>window.onpopstate = object: ' + typeof window.onpopstate);
+document.write('<br>window.onrejectionhandled = object: ' + typeof window.onrejectionhandled);
+document.write('<br>window.onstorage = object: ' + typeof window.onstorage);
+document.write('<br>window.onunhandledrejection = object: ' + typeof window.onunhandledrejection);
+document.write('<br>window.onunload = object: ' + typeof window.onunload);
+document.write('<br>window.ongamepadconnected = object: ' + typeof window.ongamepadconnected);
+document.write('<br>window.ongamepaddisconnected = object: ' + typeof window.ongamepaddisconnected);
+document.write('<br>window.addEventListener = function: ' + typeof window.addEventListener);
+document.write('<br>window.removeEventListener = function: ' + typeof window.removeEventListener);
+document.write('<br>window.dispatchEvent = function: ' + typeof window.dispatchEvent);
+    </script>
+    <br>
     <script>document.write('Done')</script>
     <br>
 </body>
 </html>
+
