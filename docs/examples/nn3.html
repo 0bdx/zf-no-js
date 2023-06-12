@@ -23,7 +23,7 @@
         // NN3: typeof document.body = undefined
     </script>
     <br>
-    <script>
+    <!-- <script>
         document.write('"documentElement" in document = ' + ("documentElement" in document));
         // NN3: missing ) in parenthetical [points to i of in]
     </script>
@@ -32,14 +32,14 @@
         document.write('"body" in document = ' + ("body" in document));
         // NN3: missing ) in parenthetical [points to i of in]
     </script>
-    <br>
+    <br> -->
     <script>
         document.write('document.documentElement = ' + document.documentElement);
         // NN3: document.documentElement = undefined
     </script>
     <br>
     <script>
-        document.write('document.documentElement ? "yep" : "nah" = ' + document.documentElement ? "yep" : "nah");
+        document.write('document.documentElement ? "yep" : "nah" = ' + (document.documentElement ? "yep" : "nah"));
         // NN3: ...
     </script>
     <br>
@@ -50,7 +50,14 @@
     <br>
     <script>
         document.write('document = ' + document);
-        // NN3: ...
+        // NN3: document =
+    </script>
+    <br>
+    <script>
+        for (var key in document) {
+            document.write('document.' + key + ' = ' + (typeof document[key]) + '<br>');
+        }
+        // NN3: document =
     </script>
     <br>
     <script>document.write('Done')</script>
