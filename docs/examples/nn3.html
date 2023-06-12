@@ -30,17 +30,18 @@
     </script>
     <script>
         document.write('window.polluter = ' + window.polluter);
-        // NN3: ...
+        // NN3:  window.polluter = function polluter() { document.write("polluter() was called"); } 
     </script>
     <br>
     <script>
         window.polluter();
-        // NN3: ...
+        // NN3: polluter() was called
     </script>
     <br>
     <script>
-        window.polluter = null;
-        document.write('After `window.polluter = null`, window.polluter = ' + window.polluter);
+        window.polluter = 0;
+        document.write('After `window.polluter = 0`, window.polluter = ' + window.polluter);
+        // NN3: After `window.polluter = null`, window.polluter = null
     </script>
     <br>
     <br>
@@ -124,7 +125,20 @@
             document.write('window.' + key + ' = ' + (typeof window[key]) + '<br>');
         }
         /* NN3:
-            window.xx = object
+            window.closed = boolean
+            window.length = number
+            window.frames = object
+            window.parent = object
+            window.top = object
+            window.self = object
+            window.name = string
+            window.status = object
+            window.defaultStatus = string
+            window.opener = object
+            window.document = object
+            window.history = object
+            window.location = object
+            window.navigator = object
         */
     </script>
     <br>
