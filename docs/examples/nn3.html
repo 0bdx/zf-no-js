@@ -95,10 +95,10 @@
     </script>
     <br>
     <br>
-    <script>document.write('<h2>The `document.prototype` object</h2>')</script>
+    <script>document.write('<h2>The `document.__proto__` object</h2>')</script>
     <script>
-        for (var key in document.prototype) {
-            document.write('document.prototype.' + key + ' = ' + (typeof document.prototype[key]) + '<br>');
+        for (var key in document.__proto__) {
+            document.write('document.__proto__.' + key + ' = ' + (typeof document.__proto__[key]) + '<br>');
         }
     </script>
     <br>
@@ -168,10 +168,10 @@
     </script>
     <br>
     <br>
-    <script>document.write('<h2>The `window.prototype` object</h2>')</script>
+    <script>document.write('<h2>The `window.__proto__` object</h2>')</script>
     <script>
-        for (var key in window.prototype) {
-            document.write('window.prototype.' + key + ' = ' + (typeof window.prototype[key]) + '<br>');
+        for (var key in window.__proto__) {
+            document.write('window.__proto__.' + key + ' = ' + (typeof window.__proto__[key]) + '<br>');
         }
     </script>
     <br>
