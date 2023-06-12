@@ -21,7 +21,7 @@ A `zs-` snippet can be CSS, HTML, JavaScript, or a combination of all three.
 
 __Each `zs-` snippet is small, and does one thing well. They:__
 - Are portable across a wide variety of user agents
-- Are backwards-compatible, supporting old ES5 user agents
+- Are backwards-compatible, sometimes supporting ancient user agents
 - Have no runtime dependencies
 - Can reduce the number of server requests
 - Can speed up page loading (FCP, FMP, TTI, etc)

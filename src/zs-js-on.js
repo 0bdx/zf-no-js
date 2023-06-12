@@ -42,7 +42,7 @@ export default function zsJsOn(
     // Get the `<HEAD>` element's `class` attribute value.
     oldClassName=htmlElement[CLASS_NAME]
 
-    // If `oldClassName` is empty, just change it to "zs-js-on, and finish.
+    // If `oldClassName` is empty, just change it to "zs-js-on", and finish.
     if(!oldClassName)
         return htmlElement[CLASS_NAME]=ADDED_CLASS
 
