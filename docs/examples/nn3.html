@@ -6,15 +6,32 @@
 </head>
 <body>
     <h1>Testing JS on NN3</h1>
-    <script>document.write('Various ways of checking for missing properties')</script>
+    <script>document.write('<h2>Avoiding polluting the window object</h2>')</script>
+    <script>
+        window.polluter = function() { document.write('window.polluter() was called'); }
+    </script>
+    <script>
+        document.write('window.polluter = ' + window.polluter);
+    </script>
     <br>
+    <script>
+        window.polluter();
+    </script>
+    <br>
+    <script>
+        window.polluter = null;
+        document.write('After `window.polluter = null`, window.polluter = ' + window.polluter);
+    </script>
+    <br>
+    <br>
+    <script>document.write('<h2>Various ways of checking for missing properties</h2>')</script>
     <script>
         document.write('typeof document = ' + (typeof document));
         // NN3: typeof document = object
     </script>
     <br>
     <script>
-        document.write('typeof document = ' + (typeof document.documentElement));
+        document.write('typeof document.documentElement = ' + (typeof document.documentElement));
         // NN3: typeof document.documentElement = undefined
     </script>
     <br>
@@ -40,7 +57,7 @@
     <br>
     <script>
         document.write('document.documentElement ? "yep" : "nah" = ' + (document.documentElement ? "yep" : "nah"));
-        // NN3: ...
+        // NN3: document.documentElement ? "yep" : "nah" = nah
     </script>
     <br>
     <script>
@@ -53,11 +70,42 @@
         // NN3: document =
     </script>
     <br>
+    <br>
+    <script>document.write('<h2>The `document` object</h2>')</script>
     <script>
         for (var key in document) {
             document.write('document.' + key + ' = ' + (typeof document[key]) + '<br>');
         }
-        // NN3: document =
+        /* NN3:
+            document.forms = object
+            document.links = object
+            document.anchors = object
+            document.applets = object
+            document.embeds = object
+            document.images = object
+            document.title = string
+            document.URL = string
+            document.referrer = string
+            document.lastModified = string
+            document.cookie = string
+            document.domain = string
+            document.bgColor = string
+            document.fgColor = string
+            document.linkColor = string
+            document.vlinkColor = string
+            document.alinkColor = string
+        */
+    </script>
+    <br>
+    <br>
+    <script>document.write('<h2>The `window` object</h2>')</script>
+    <script>
+        for (var key in window) {
+            document.write('window.' + key + ' = ' + (typeof window[key]) + '<br>');
+        }
+        /* NN3:
+            window.xx = object
+        */
     </script>
     <br>
     <script>document.write('Done')</script>
