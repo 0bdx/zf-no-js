@@ -12,9 +12,28 @@
         document.write('This is document.write() in f1()')
     };f1();</script>
     <br>
-    <script>for(var i=0;i<2;i++){
-        document.write('<br>This is document.write() in a loop: ' + i)
+    <script>for(var loopVar=0;loopVar<2;loopVar++){
+        document.write('<br>This is document.write() in a loop: ' + loopVar)
     }</script>
+    <br>
+    <script>document.write('window.loopVar is ' + window.loopVar)</script>
+    <br>
+    <script>if(1){
+        var ifVar = 99;
+        document.write('<br>This is document.write() in an if body: ' + ifVar)
+    }</script>
+    <br>
+    <script>document.write('window.ifVar is ' + window.ifVar)</script>
+    <br>
+    <script>
+        delete window.ifVar;
+        document.write('After delete window.ifVar: ' + window.ifVar)
+    </script>
+    <br>
+    <script>
+        window.ifVar = undefined;
+        document.write('After window.ifVar = undefined: ' + window.ifVar)
+    </script>
     <br>
 </body>
 </html>
